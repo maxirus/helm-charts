@@ -1,0 +1,11 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "helm package */ && helm repo index --url https://maxirus.github.io/helm-charts/ .",
+            "problemMatcher": []
+        }
+    ]
+}

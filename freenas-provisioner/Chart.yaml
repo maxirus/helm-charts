@@ -1,0 +1,15 @@
+apiVersion: v2
+name: freenas-provisioner
+description: A Helm chart for deploying the FreeNAS-Provisioner
+type: application
+version: 0.1.0
+appVersion: 2.5
+keywords:
+  - freenas
+  - storageclass
+  - kubernetes
+home: https://maxirus.github.io/helm-charts/freenas-provisioner
+sources:
+  - https://github.com/maxirus/helm-charts/freenas-provisioner
+  - https://github.com/nmaupu/freenas-provisioner
+# icon: # Need consent from iXsystems: https://www.freenas.org/trademarks/
