@@ -72,6 +72,21 @@ helm upgrade --install \
 | storageClass.parameters.shareRetainPreExisting | string | `"true"` | if enabled and datasetDeterministicNames is enabled then shares that already exist (pre-provisioned out of band) will be retained by the provisioner during deletion of the reclaim process ignored if datasetDeterministicNames is disabled (collisions result in failure) |
 | tolerations | list | `[]` | Node toleration configuration |
 
+## K3s Notes
+
+If running on K3s and you would like to make this the default StorageClass, follow these steps:
+
+1) Disable `local-path` as the default *StorageClass*
+```sh
+$ kubectl patch storageclass local-path -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"false"}}}'
+```
+2) Set the following in your `values.yaml`
+```yaml
+storageClass:
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "true"
+```
+
 ## Futher Reading
 
 For further information, see the [nmaupu/freenas-provisioner](https://github.com/nmaupu/freenas-provisioner) project.
