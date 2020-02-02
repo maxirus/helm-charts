@@ -8,6 +8,20 @@ Create a new Dataset in your FreeNAS pool that will be dedicated to Kubernetes P
 
 Under Services, make sure the NFS service is running and that the *Start Automatically* box is checked. Next click on the *Configure* icon and check your settings. If `Enable NFSv4` is checked, ensure `NFSv3 ownership model for NFSv4` is also checked as this will cause issues for containers that need to chown/chmod files/directories.
 
+For each Kubernetes node in your cluster, install the nfs client utils:
+
+*Ubuntu/Debian:*
+```sh
+sudo apt-get update
+sudo apt-get -y install nfs-common
+```
+
+*CentOS/RHEL*
+```sh
+sudo yum makecache fast
+sudo yum -y install nfs-utils
+```
+
 ## Install
 
 Using [Helm](https://helm.sh), you can easily install the FreeNAS Provisioner in a 
