@@ -6,6 +6,12 @@
             "type": "shell",
             "command": "helm package */ && helm repo index --url https://maxirus.github.io/helm-charts/ .",
             "problemMatcher": []
+        },
+        {
+            "label": "docs",
+            "type": "shell",
+            "command": "helm-docs --dry-run",
+            "problemMatcher": []
         }
     ]
 }
