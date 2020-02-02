@@ -3,7 +3,31 @@ entries:
   bitwarden-rs:
   - apiVersion: v2
     appVersion: 1.13.1
-    created: "2020-02-01T22:07:39.672763-05:00"
+    created: "2020-02-02T11:48:48.245586-05:00"
+    dependencies:
+    - condition: mysql.enabled
+      name: mysql
+      repository: https://kubernetes-charts.storage.googleapis.com/
+      version: 1.6.2
+    description: A Helm chart to deploy Bitwarden_RS and the MySQL backend
+    digest: 7000c82f3ebae0c5aa42763f9dc52bfb0b8f1a25fb290234ecf16dce14ebbfa2
+    home: https://maxirus.github.io/helm-charts/bitwarden-rs
+    keywords:
+    - bitwarden
+    - bitwarden_rs
+    - password
+    - manager
+    name: bitwarden-rs
+    sources:
+    - https://github.com/maxirus/helm-charts/bitwarden-rs
+    - https://github.com/dani-garcia/bitwarden_rs
+    type: application
+    urls:
+    - https://maxirus.github.io/helm-charts/bitwarden-rs-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: 1.13.1
+    created: "2020-02-02T11:48:48.242746-05:00"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -28,7 +52,7 @@ entries:
   freenas-provisioner:
   - apiVersion: v2
     appVersion: "2.5"
-    created: "2020-02-01T22:07:39.674909-05:00"
+    created: "2020-02-02T11:48:48.247607-05:00"
     description: A Helm chart for deploying the FreeNAS-Provisioner
     digest: aa19fac7617ac58e5bf5e2200b3d7eaf9dda9d0be675634b7bbf76c04443bf74
     home: https://maxirus.github.io/helm-charts/freenas-provisioner
@@ -46,7 +70,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: "2.5"
-    created: "2020-02-01T22:07:39.674066-05:00"
+    created: "2020-02-02T11:48:48.246756-05:00"
     description: A Helm chart for deploying the FreeNAS-Provisioner
     digest: 97703f4b1288f149856b50ca5e79fb8c222ce02fe6ddeab0c7e7ab133eef8b39
     home: https://maxirus.github.io/helm-charts/freenas-provisioner
@@ -62,4 +86,4 @@ entries:
     urls:
     - https://maxirus.github.io/helm-charts/freenas-provisioner-0.1.0.tgz
     version: 0.1.0
-generated: "2020-02-01T22:07:39.66854-05:00"
+generated: "2020-02-02T11:48:48.238722-05:00"
