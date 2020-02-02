@@ -1,0 +1,161 @@
+# Default values for bitwarden-rs.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# replicaCount -- Number of pods to run. >1 has NOT been tested
+replicaCount: 1
+
+image:
+
+  # image.repository -- Docker registry/repository to pull the image from
+  repository: bitwardenrs/server-mysql
+
+  # image.pullPolicy -- Docker image pull policy
+  pullPolicy: IfNotPresent
+
+  # image.pullSecrets -- Secrets to use when pulling Docker images
+  pullSecrets: []
+
+# nameOverride -- Overrides the name of resources
+nameOverride: ""
+
+# fullnameOverride -- Overrides the Full Name of resources
+fullnameOverride: ""
+
+credentials:
+
+  # credentials.useExistingSecret -- Set this to true to use your own Secret, created outside of this deployment. Expects `adminToken`, `mysql-password`, and `mysql-root-password`.
+  useExistingSecret: false
+
+  # credentials.secretName -- name of the secret which contains Bitwarden Admin token and DB Password. NOTE: if you change this you must also change mysql.existingSecret to match.
+  secretName: bitwarden
+
+bitwardenConfig:
+
+  # bitwardenConfig.signups_allowed -- (Optional) By default new users can register. Set to false to disable signups. [Docs](https://github.com/dani-garcia/bitwarden_rs/wiki/Disable-registration-of-new-users)
+  # signups_allowed: true
+
+  # bitwardenConfig.invitations_allowed -- (Optional) set to false to prevent standard users from inviting others. [Docs](https://github.com/dani-garcia/bitwarden_rs/wiki/Disable-invitations)
+  # invitations_allowed: true
+
+  # bitwardenConfig.rocket_tls -- (Optional) Enables SSL/TLS on the Web Service, securing traffic between it and the ingreess. [Docs](https://github.com/dani-garcia/bitwarden_rs/wiki/Enabling-HTTPS)
+  # rocket_tls: "{certs=\"/ssl/certs.pem\",key=\"/ssl/key.pem\"}"
+
+  # bitwardenConfig.data_folder -- parent directory for all Bitwarden persisted data. [Docs](https://github.com/dani-garcia/bitwarden_rs/wiki/Changing-persistent-data-location#data-prefix)
+  data_folder: "/data"
+
+  # bitwardenConfig.attachments_folder -- (Optional) set the directory for attachments. Defaults to `$DATA_FOLDER/attachments`. [Docs](https://github.com/dani-garcia/bitwarden_rs/wiki/Changing-persistent-data-location#attachments-location)
+  # attachments_folder: $DATA_FOLDER/attachments
+
+  # bitwardenConfig.icon_cache_folder -- (Optional) set the directory icon cache (ie. favicon). Defaults to `$DATA_FOLDER/icon_cache`. [Docs](https://github.com/dani-garcia/bitwarden_rs/wiki/Changing-persistent-data-location#icons-cache)
+  # icon_cache_folder: $DATA_FOLDER/icon_cache
+
+  # bitwardenConfig.rocket_limits -- (Optional) API request size limits. [Docs](https://github.com/dani-garcia/bitwarden_rs/wiki/Changing-the-API-request-size-limit)
+  # rocket_limits: "{json=10485760}"
+
+  # bitwardenConfig.rocket_workers -- (Optional) Number of worker threads to handle requests. [Docs](https://github.com/dani-garcia/bitwarden_rs/wiki/Changing-the-number-of-workers)
+  # rocket_workers: 10
+
+  # TODO: This section incomplete
+
+serviceAccount:
+  
+  # serviceAccount.create -- Specifies whether a service account should be created
+  create: true
+
+  # serviceAccount.name -- (string) name of the service account to use. If not set and create is true, a name is generated using the fullname template
+  # name:
+
+## Persist data to a persistent volume
+persistence:
+
+  # persistence.enabled -- Enables persistence of the Bitwarden_rs `/data` directory
+  enabled: false
+  
+  ## Bitwarden data Persistent Volume Storage Class
+  ## If defined, storageClassName: <storageClass>
+  ## If set to "-", storageClassName: "", which disables dynamic provisioning
+  ## If undefined (the default) or set to null, no storageClassName spec is
+  ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+  ##   GKE, AWS & OpenStack)
+  
+  # persistence.storageClass -- (Optional) StorageClass to use for the PVC
+  # storageClass: "-"
+  
+  # persistence.accessMode -- [access mode](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) to use for the PVC
+  accessMode: ReadWriteOnce
+  
+  # persistence.size -- size/capacity of the PVC
+  size: 8Gi
+
+  # persistence.annotations -- (Optional) annotations to add to the PVC
+  annotations: {}
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+
+  # ingress.enabled -- Enables the use of an Ingress Controller to front the Service and provide HTTPS
+  enabled: false
+  
+  # ingress.annotations -- annotations to configure your Ingress. See your Ingress Controller's Docs for more info.
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  
+  # ingress.hosts -- list of hosts and their paths that ingress controller should repsond to.
+  hosts:
+    - host: chart-example.local
+      paths:
+        - '/'
+  
+  # ingress.tls -- list of TLS configurations
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+# resources -- Set resource limits/requests for the Pod(s)
+resources: {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+# nodeSelector -- Node Selector configuration
+nodeSelector: {}
+
+# tolerations -- Node toleration configuration
+tolerations: []
+
+# affinity -- Set Pod affinity rules
+affinity: {}
+
+# podSecurityContext -- Set Pod security contexts
+podSecurityContext: {}
+  # fsGroup: 2000
+
+# securityContext -- Set Security Context
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+# mysql -- MySQL HelmChart configuration options. See [docs](https://github.com/helm/charts/tree/master/stable/mysql)
+mysql:
+
+  # mysql.existingSecret -- Secret to reference for MySQL credentials
+  existingSecret: bitwarden
+
+  # mysql.mysqlDatabase -- Database name for Bitwarden
+  mysqlDatabase: bitwarden
+
+  # mysql.mysqlUser -- Username Bitwarden should use
+  mysqlUser: bitwarden

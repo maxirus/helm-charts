@@ -1,0 +1,20 @@
+apiVersion: v2
+name: bitwarden-rs
+description: A Helm chart to deploy Bitwarden_RS and the MySQL backend
+type: application
+version: 0.1.0
+appVersion: 1.13.1
+keywords:
+  - bitwarden
+  - bitwarden_rs
+  - password
+  - manager
+home: https://maxirus.github.io/helm-charts/bitwarden-rs
+sources:
+  - https://github.com/maxirus/helm-charts/bitwarden-rs
+  - https://github.com/dani-garcia/bitwarden_rs
+dependencies:
+  - name: mysql
+    version: 1.6.2
+    repository: https://kubernetes-charts.storage.googleapis.com/
+    condition: mysql.enabled
