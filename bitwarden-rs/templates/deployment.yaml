@@ -27,6 +27,9 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          envFrom:
+          - configMapRef:
+              name: {{ include "bitwarden-rs.fullname" . }}-env
           env:
             - name: RUST_BACKTRACE
               value: "1"
@@ -46,6 +49,17 @@ spec:
               value: {{ .Release.Name }}-{{ default "mysql" .Values.mysql.fullnameOverride }}.{{ .Release.Namespace }}
             - name: DATABASE_URL
               value: "mysql://{{ .Values.mysql.mysqlUser }}:$(DB_PASSWORD)@$(DB_HOST):{{ .Values.mysql.service.port }}/{{ .Values.mysql.mysqlDatabase }}"
+            {{- if and .Values.ingress.enabled (.Values.ingress.hosts) }}
+            - name: DOMAIN
+              value: {{ (index .Values.ingress.hosts 0).host }}
+            {{- end }}
+            {{- if .Values.credentials.yubicoSecretKey }}
+            - name: YUBICO_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.credentials.secretName }}
+                  key: {{ .Values.credentials.yubicoSecretKey }}
+            {{- end }}
           ports:
             - name: http
               containerPort: 80
@@ -66,7 +80,7 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
           - name: data
-            mountPath: /data
+            mountPath: {{ .Values.bitwardenConfig.data_folder }}
 
       volumes:
       - name: data
