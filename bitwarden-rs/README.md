@@ -61,9 +61,12 @@ helm upgrade --install \
 | ingress.hosts | list | `[{"host":"chart-example.local","paths":["/"]}]` | list of hosts and their paths that ingress controller should repsond to. First host will be used to set the Bitwarden `DOMAIN`. |
 | ingress.tls | list | `[]` | list of TLS configurations |
 | mysql | object | | MySQL HelmChart configuration options. See [docs](https://github.com/helm/charts/tree/master/stable/mysql) |
+| mysql.enabled | bool | `true` | Set to `false` to skip MySQL deployment and use and external instance. Must also set `mysql.externalHost`. |
 | mysql.existingSecret | string | `"bitwarden"` | Secret to reference for MySQL credentials |
+| mysql.externalHost | string | `nil` | Sets an external host to use instead of the included MySQL chart dependency. Must also set `mysql.enabled: false`. |
 | mysql.mysqlDatabase | string | `"bitwarden"` | Database name for Bitwarden |
 | mysql.mysqlUser | string | `"bitwarden"` | Username Bitwarden should use |
+| mysql.service.port | int | `3306` | Port MySQL should use for connections |
 | nameOverride | string | `""` | Overrides the name of resources |
 | nodeSelector | object | `{}` | Node Selector configuration |
 | persistence.accessMode | string | `"ReadWriteOnce"` | [access mode](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) to use for the PVC |
@@ -80,6 +83,15 @@ helm upgrade --install \
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
 | serviceAccount.name | string | `nil` | (Optional) name of the service account to use. If not set and create is true, a name is generated using the fullname template |
 | tolerations | list | `[]` | Node toleration configuration |
+
+## Using an external MySQL Database
+
+To use an external MySQL Database and **not** deploy the included MySQL sub-chart, set the following:
+```yaml
+mysql:
+  enabled: false
+  externalHost: mysql.domain.tld
+```
 
 ## Security Concerns
 

@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2020-02-04
+### Added
+- [Feature #1](https://github.com/maxirus/helm-charts/issues/1) Support for the use of an external MySQL database
+
 ## [0.2.0] - 2020-02-02
 ### Added
 - Common Bitwarden Configurations
