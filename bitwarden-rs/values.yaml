@@ -204,6 +204,9 @@ securityContext: {}
 # mysql -- MySQL HelmChart configuration options. See [docs](https://github.com/helm/charts/tree/master/stable/mysql)
 mysql:
 
+  # mysql.enabled -- Set to `false` to skip MySQL deployment and use and external instance. Must also set `mysql.externalHost`.
+  enabled: true
+
   # mysql.existingSecret -- Secret to reference for MySQL credentials
   existingSecret: bitwarden
 
@@ -212,3 +215,11 @@ mysql:
 
   # mysql.mysqlUser -- Username Bitwarden should use
   mysqlUser: bitwarden
+
+  service:
+
+    # mysql.service.port -- Port MySQL should use for connections
+    port: 3306
+
+  # mysql.externalHost -- Sets an external host to use instead of the included MySQL chart dependency. Must also set `mysql.enabled: false`.
+  externalHost:

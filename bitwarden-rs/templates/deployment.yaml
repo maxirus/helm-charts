@@ -46,7 +46,11 @@ spec:
                   name: {{ .Values.credentials.secretName }}
                   key: mysql-password
             - name: DB_HOST
+              {{- if .Values.mysql.enabled }}
               value: {{ .Release.Name }}-{{ default "mysql" .Values.mysql.fullnameOverride }}.{{ .Release.Namespace }}
+              {{ else }}
+              value: {{ .Values.mysql.externalHost }}
+              {{- end }}
             - name: DATABASE_URL
               value: "mysql://{{ .Values.mysql.mysqlUser }}:$(DB_PASSWORD)@$(DB_HOST):{{ .Values.mysql.service.port }}/{{ .Values.mysql.mysqlDatabase }}"
             {{- if and .Values.ingress.enabled (.Values.ingress.hosts) }}
