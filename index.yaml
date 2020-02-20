@@ -3,7 +3,7 @@ entries:
   bitwarden-rs:
   - apiVersion: v2
     appVersion: 1.13.1
-    created: "2020-02-04T12:10:39.928894-05:00"
+    created: "2020-02-19T23:15:43.22082-05:00"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -27,7 +27,7 @@ entries:
     version: 0.3.0
   - apiVersion: v2
     appVersion: 1.13.1
-    created: "2020-02-04T12:10:39.926841-05:00"
+    created: "2020-02-19T23:15:43.21873-05:00"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -51,7 +51,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: 1.13.1
-    created: "2020-02-04T12:10:39.923385-05:00"
+    created: "2020-02-19T23:15:43.216056-05:00"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -76,7 +76,7 @@ entries:
   freenas-provisioner:
   - apiVersion: v2
     appVersion: "2.5"
-    created: "2020-02-04T12:10:39.931302-05:00"
+    created: "2020-02-19T23:15:43.223706-05:00"
     description: A Helm chart for deploying the FreeNAS-Provisioner
     digest: aa19fac7617ac58e5bf5e2200b3d7eaf9dda9d0be675634b7bbf76c04443bf74
     home: https://maxirus.github.io/helm-charts/freenas-provisioner
@@ -94,7 +94,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: "2.5"
-    created: "2020-02-04T12:10:39.930268-05:00"
+    created: "2020-02-19T23:15:43.222492-05:00"
     description: A Helm chart for deploying the FreeNAS-Provisioner
     digest: 97703f4b1288f149856b50ca5e79fb8c222ce02fe6ddeab0c7e7ab133eef8b39
     home: https://maxirus.github.io/helm-charts/freenas-provisioner
@@ -110,4 +110,26 @@ entries:
     urls:
     - https://maxirus.github.io/helm-charts/freenas-provisioner-0.1.0.tgz
     version: 0.1.0
-generated: "2020-02-04T12:10:39.918759-05:00"
+  jellyfin:
+  - apiVersion: v2
+    appVersion: 10.4.3
+    created: "2020-02-19T23:15:43.224543-05:00"
+    description: A Helm chart for deploying Jellyfin on Kubernetes
+    digest: 78c5f016c399591d0ffa0c045fa42d85ea509560303da3aa4618482f534b9a49
+    name: jellyfin
+    type: application
+    urls:
+    - https://maxirus.github.io/helm-charts/jellyfin-0.1.0.tgz
+    version: 0.1.0
+  plex:
+  - apiVersion: v2
+    appVersion: 1.18.4
+    created: "2020-02-19T23:15:43.225569-05:00"
+    description: A Helm chart for deploying Plex on Kubernetes
+    digest: 6e150f9804f69f4be6f3aed8925258ae9a438fad76551cb89f7e013bc6e20ec1
+    name: plex
+    type: application
+    urls:
+    - https://maxirus.github.io/helm-charts/plex-0.1.0.tgz
+    version: 0.1.0
+generated: "2020-02-19T23:15:43.210317-05:00"

@@ -2,3 +2,4 @@
 ssl-cert.yaml
 Chart.lock
 .vscode/*.yaml
+plex/
