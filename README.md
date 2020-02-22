@@ -21,3 +21,4 @@ $ helm upgrade --install <release_name> maxirus/<chart_name>
 - [freenas-provisioner](freenas-provisioner/)
 - [Bitwarden_rs](bitwarden_rs/)
 - [Jellyfin](jellyfin/)
+- [motionEye](motioneye/)
