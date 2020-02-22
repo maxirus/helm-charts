@@ -5,16 +5,16 @@ A Helm chart for deploying the [Jellyfin](https://jellyfin.org) media system on 
 
 ## Install
 
-Using [Helm](https://helm.sh), you can easily install and test Bitwarden_rs in a 
+Using [Helm](https://helm.sh), you can easily install and test Jellyfin in a 
 Kubernetes cluster by running the following:
 
-```
+```bash
 helm upgrade --install \
   my-release
-  maxirus/jellyfin \
+  maxirus/jellyfin
 ```
 
-**Knonw Limitation:**
+#### Knonw Limitations
 - There is currently a [Bug](https://github.com/jellyfin/jellyfin/issues/2126) in the Official Jellyfin Docker image for ARM (RPi). Use the [linuxserver/jellyfin](https://hub.docker.com/r/linuxserver/jellyfin) image instead.
 - This chart currently does not support GPU resources
 - Liveness probe not yet implemented
