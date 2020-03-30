@@ -58,6 +58,7 @@ helm upgrade --install \
 | podSecurityContext | object | `{}` | Set Pod security contexts |
 | resources | object | `{}` | Set resource limits/requests for the Pod(s) |
 | securityContext | object | `{}` | Set Security Context |
+| service.loadBalancerIP | string | `nil` | Set specific IP address for LoadBalancer. `service.type` must be set to `LoadBalancer` |
 | service.port | int | `80` | Port the Service should communicate on |
 | service.type | string | `"ClusterIP"` | Type of Service to use |
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |

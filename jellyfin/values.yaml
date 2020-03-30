@@ -110,6 +110,9 @@ service:
   # service.type -- Type of Service to use
   type: ClusterIP
 
+  # service.loadBalancerIP -- Set specific IP address for LoadBalancer. `service.type` must be set to `LoadBalancer`
+  loadBalancerIP:
+
   # service.port -- Port the Service should communicate on
   port: 80
 
