@@ -3,7 +3,7 @@ entries:
   bitwarden-rs:
   - apiVersion: v2
     appVersion: 1.13.1
-    created: "2020-04-05T10:44:37.576101-04:00"
+    created: "2020-04-05T15:09:25.847826-04:00"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -27,7 +27,7 @@ entries:
     version: 0.3.0
   - apiVersion: v2
     appVersion: 1.13.1
-    created: "2020-04-05T10:44:37.573878-04:00"
+    created: "2020-04-05T15:09:25.845779-04:00"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -51,7 +51,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: 1.13.1
-    created: "2020-04-05T10:44:37.569484-04:00"
+    created: "2020-04-05T15:09:25.840901-04:00"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -76,7 +76,7 @@ entries:
   freenas-provisioner:
   - apiVersion: v2
     appVersion: "2.5"
-    created: "2020-04-05T10:44:37.579494-04:00"
+    created: "2020-04-05T15:09:25.851823-04:00"
     description: A Helm chart for deploying the FreeNAS-Provisioner
     digest: aa19fac7617ac58e5bf5e2200b3d7eaf9dda9d0be675634b7bbf76c04443bf74
     home: https://maxirus.github.io/helm-charts/freenas-provisioner
@@ -94,7 +94,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: "2.5"
-    created: "2020-04-05T10:44:37.577995-04:00"
+    created: "2020-04-05T15:09:25.850528-04:00"
     description: A Helm chart for deploying the FreeNAS-Provisioner
     digest: 97703f4b1288f149856b50ca5e79fb8c222ce02fe6ddeab0c7e7ab133eef8b39
     home: https://maxirus.github.io/helm-charts/freenas-provisioner
@@ -113,17 +113,7 @@ entries:
   jellyfin:
   - apiVersion: v2
     appVersion: 10.5.2
-    created: "2020-04-05T10:44:37.585747-04:00"
-    description: A Helm chart for deploying Jellyfin on Kubernetes
-    digest: 180d959c14ba3b4507647c1bd8d81e25191d5c5fc893175c7b5cc6a4e603c41a
-    name: jellyfin
-    type: application
-    urls:
-    - https://maxirus.github.io/helm-charts/jellyfin-0.2.1-beta.0.tgz
-    version: 0.2.1-beta.0
-  - apiVersion: v2
-    appVersion: 10.5.2
-    created: "2020-04-05T10:44:37.58484-04:00"
+    created: "2020-04-05T15:09:25.858569-04:00"
     description: A Helm chart for deploying Jellyfin on Kubernetes
     digest: 40894e0fb749b48fa4de62e2de64b9af9e422a277f311da6448f585a408097d7
     name: jellyfin
@@ -133,7 +123,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: 10.4.3
-    created: "2020-04-05T10:44:37.582681-04:00"
+    created: "2020-04-05T15:09:25.857497-04:00"
     description: A Helm chart for deploying Jellyfin on Kubernetes
     digest: f6c89468aa35b44f9f7d8380a94a26dc6ed91dc97f79e10b0d9fd7765c5e6bfb
     name: jellyfin
@@ -143,7 +133,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 10.4.3
-    created: "2020-04-05T10:44:37.580793-04:00"
+    created: "2020-04-05T15:09:25.853531-04:00"
     description: A Helm chart for deploying Jellyfin on Kubernetes
     digest: 78c5f016c399591d0ffa0c045fa42d85ea509560303da3aa4618482f534b9a49
     name: jellyfin
@@ -154,7 +144,7 @@ entries:
   motioneye:
   - apiVersion: v2
     appVersion: 0.42.0
-    created: "2020-04-05T10:44:37.586821-04:00"
+    created: "2020-04-05T15:09:25.862585-04:00"
     description: A Helm chart to deploy motionEye in Kubernetes
     digest: 6be9f2dccb431a2cceb80692698697bc11352bea5a8dda000f1ff9d657008191
     name: motioneye
@@ -162,15 +152,4 @@ entries:
     urls:
     - https://maxirus.github.io/helm-charts/motioneye-0.1.0.tgz
     version: 0.1.0
-  plex:
-  - apiVersion: v2
-    appVersion: 1.18.4
-    created: "2020-04-05T10:44:37.587245-04:00"
-    description: A Helm chart for deploying Plex on Kubernetes
-    digest: 6e150f9804f69f4be6f3aed8925258ae9a438fad76551cb89f7e013bc6e20ec1
-    name: plex
-    type: application
-    urls:
-    - https://maxirus.github.io/helm-charts/plex-0.1.0.tgz
-    version: 0.1.0
-generated: "2020-04-05T10:44:37.564569-04:00"
+generated: "2020-04-05T15:09:25.830504-04:00"
