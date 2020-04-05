@@ -29,6 +29,15 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ include "jellyfin.imageTag" . }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+          {{- if .Values.securityContext.runAsUser }}
+            - name: PUID
+              value: "{{ .Values.securityContext.runAsUser }}"
+          {{- end }}
+          {{- if .Values.securityContext.runAsGroup }}
+            - name: GUID
+              value: "{{ .Values.securityContext.runAsGroup }}"
+          {{- end }}
           ports:
             - name: http
               containerPort: 8096
