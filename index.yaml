@@ -75,6 +75,24 @@ entries:
     version: 0.1.0
   freenas-provisioner:
   - apiVersion: v2
+    appVersion: "2.6"
+    created: "2020-05-10T21:25:19.963193-04:00"
+    description: A Helm chart for deploying the FreeNAS-Provisioner
+    digest: 75456103531a475fb7dcc72c448e916d6877ccfd9ce7457250987c1390d83310
+    home: https://maxirus.github.io/helm-charts/freenas-provisioner
+    keywords:
+    - freenas
+    - storageclass
+    - kubernetes
+    name: freenas-provisioner
+    sources:
+    - https://github.com/maxirus/helm-charts/freenas-provisioner
+    - https://github.com/nmaupu/freenas-provisioner
+    type: application
+    urls:
+    - https://maxirus.github.io/helm-charts/freenas-provisioner-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
     appVersion: "2.5"
     created: "2020-04-05T15:09:25.851823-04:00"
     description: A Helm chart for deploying the FreeNAS-Provisioner

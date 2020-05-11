@@ -9,6 +9,9 @@ image:
 
   # image.repository -- Docker registry/repository to pull the image from
   repository: docker.io/nmaupu/freenas-provisioner
+
+  # image.tag -- Overrides the image tag used
+  tag:
   
   # image.pullPolicy -- Docker image pull policy
   pullPolicy: IfNotPresent
