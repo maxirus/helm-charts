@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.0] - 2020-05-10
+### Added
+- Option to override the Docker image tag used via value `image.tag`
+### Updated
+- Bitwarden-rs to `v1.14.2`
+
 ## [0.3.0] - 2020-02-04
 ### Added
 - [Feature #1](https://github.com/maxirus/helm-charts/issues/1) Support for the use of an external MySQL database
