@@ -30,7 +30,7 @@ helm upgrade --install \
 | affinity | object | `{}` | Set Pod affinity rules |
 | bitwardenConfig.attachments_folder | string | `"$DATA_FOLDER/attachments"` | (Optional) set the directory for attachments. Defaults to `$DATA_FOLDER/attachments`. [Docs](https://github.com/dani-garcia/bitwarden_rs/wiki/Changing-persistent-data-location#attachments-location) |
 | bitwardenConfig.data_folder | string | `"/data"` | parent directory for all Bitwarden persisted data. [Docs](https://github.com/dani-garcia/bitwarden_rs/wiki/Changing-persistent-data-location#data-prefix) |
-| bitwardenConfig.domain | string | `"bw.domain.tld"` | (Optioinal) Override the domain used by Bitwarde. By default it uses the first host defined in your Ingress. |
+| bitwardenConfig.domain | string | `"bw.domain.tld"` | (Optioinal) Override the domain used by Bitwarden. By default it uses the first host in your Ingress if enabled & defined, otherwise the "fullname" of the service. |
 | bitwardenConfig.icon_cache_folder | string | `"$DATA_FOLDER/icon_cache"` | (Optional) set the directory icon cache (ie. favicon). Defaults to `$DATA_FOLDER/icon_cache`. [Docs](https://github.com/dani-garcia/bitwarden_rs/wiki/Changing-persistent-data-location#icons-cache) |
 | bitwardenConfig.invitations_allowed | bool | `true` | (Optional) set to false to prevent standard users from inviting others. [Docs](https://github.com/dani-garcia/bitwarden_rs/wiki/Disable-invitations) |
 | bitwardenConfig.log_file | string | `"/data/bitwarden.log"` | (Optional) File location to send logs to. [Docs](https://github.com/dani-garcia/bitwarden_rs/wiki/Logging) |

@@ -44,7 +44,7 @@ bitwardenConfig:
   #   in this section will be uppercased and set as an env
   #   var with its respective vale.
 
-  # bitwardenConfig.domain -- (Optioinal) Override the domain used by Bitwarde. By default it uses the first host defined in your Ingress.
+  # bitwardenConfig.domain -- (Optioinal) Override the domain used by Bitwarden. By default it uses the first host defined in your Ingress if defined, otherwise the "fullname" of the service.
   # domain: bw.domain.tld
 
   # bitwardenConfig.signups_allowed -- (Optional) By default new users can register. Set to false to disable signups. [Docs](https://github.com/dani-garcia/bitwarden_rs/wiki/Disable-registration-of-new-users)

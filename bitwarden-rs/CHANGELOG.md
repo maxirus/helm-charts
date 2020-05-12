@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.1] - 2020-05-11
+### Fixed
+- Bitwarden_rs `v1.14` now expects `DOMAIN` to be a full URL 
+
 ## [0.4.0] - 2020-05-10
 ### Added
 - Option to override the Docker image tag used via value `image.tag`

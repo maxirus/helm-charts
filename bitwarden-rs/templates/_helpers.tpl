@@ -72,3 +72,22 @@ Gets the image Tag to use when pulling the docker image
 {{ .Chart.AppVersion }}
 {{- end -}}
 {{- end -}}
+
+{{/*
+Returns the Bitwarden_rs URL
+*/}}
+{{- define "bitwarden-rs.url" -}}
+{{- if .Values.bitwardenConfig.domain }}
+  {{- .Values.bitwardenConfig.domain }}
+{{- else }}
+  {{- if .Values.ingress.enabled }}
+    {{- if .Values.ingress.tls }}
+      {{- printf "https://%s" (index .Values.ingress.hosts 0).host -}}
+    {{- else }}
+      {{- printf "http://%s" (index .Values.ingress.hosts 0).host -}}
+    {{- end }}
+  {{- else }}
+    {{- printf "http://%s:%s" (include "bitwarden-rs.fullname" .) (toString .Values.service.port) -}}
+  {{- end}}
+{{- end}}
+{{- end -}}
