@@ -1,0 +1,221 @@
+apiVersion: v1
+entries:
+  bitwarden-rs:
+  - apiVersion: v2
+    appVersion: 1.14.2
+    created: "2020-05-11T23:05:30.6818-04:00"
+    dependencies:
+    - condition: mysql.enabled
+      name: mysql
+      repository: https://kubernetes-charts.storage.googleapis.com/
+      version: 1.6.2
+    description: A Helm chart to deploy Bitwarden_RS and the MySQL backend
+    digest: c0f44fdb32a053aeb20aaa677031f3f4e2f45054df2ec12b38f4eb1985740e4b
+    home: https://maxirus.github.io/helm-charts/bitwarden-rs
+    keywords:
+    - bitwarden
+    - bitwarden_rs
+    - password
+    - manager
+    name: bitwarden-rs
+    sources:
+    - https://github.com/maxirus/helm-charts/bitwarden-rs
+    - https://github.com/dani-garcia/bitwarden_rs
+    type: application
+    urls:
+    - https://maxirus.github.io/helm-charts/bitwarden-rs-0.4.1.tgz
+    version: 0.4.1
+  - apiVersion: v2
+    appVersion: 1.14.2
+    created: "2020-05-10T22:39:16.35587-04:00"
+    dependencies:
+    - condition: mysql.enabled
+      name: mysql
+      repository: https://kubernetes-charts.storage.googleapis.com/
+      version: 1.6.2
+    description: A Helm chart to deploy Bitwarden_RS and the MySQL backend
+    digest: 6f47a06f3e97a94acd33c6029fd67b60011d3341c79d8b56b195c7501d45bff0
+    home: https://maxirus.github.io/helm-charts/bitwarden-rs
+    keywords:
+    - bitwarden
+    - bitwarden_rs
+    - password
+    - manager
+    name: bitwarden-rs
+    sources:
+    - https://github.com/maxirus/helm-charts/bitwarden-rs
+    - https://github.com/dani-garcia/bitwarden_rs
+    type: application
+    urls:
+    - https://maxirus.github.io/helm-charts/bitwarden-rs-0.4.0.tgz
+    version: 0.4.0
+  - apiVersion: v2
+    appVersion: 1.13.1
+    created: "2020-04-05T15:09:25.847826-04:00"
+    dependencies:
+    - condition: mysql.enabled
+      name: mysql
+      repository: https://kubernetes-charts.storage.googleapis.com/
+      version: 1.6.2
+    description: A Helm chart to deploy Bitwarden_RS and the MySQL backend
+    digest: 330e5383f13e0df9499d5b4d9663e2079c73ab498fcb067cba84fa400e89d6ba
+    home: https://maxirus.github.io/helm-charts/bitwarden-rs
+    keywords:
+    - bitwarden
+    - bitwarden_rs
+    - password
+    - manager
+    name: bitwarden-rs
+    sources:
+    - https://github.com/maxirus/helm-charts/bitwarden-rs
+    - https://github.com/dani-garcia/bitwarden_rs
+    type: application
+    urls:
+    - https://maxirus.github.io/helm-charts/bitwarden-rs-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
+    appVersion: 1.13.1
+    created: "2020-04-05T15:09:25.845779-04:00"
+    dependencies:
+    - condition: mysql.enabled
+      name: mysql
+      repository: https://kubernetes-charts.storage.googleapis.com/
+      version: 1.6.2
+    description: A Helm chart to deploy Bitwarden_RS and the MySQL backend
+    digest: 7000c82f3ebae0c5aa42763f9dc52bfb0b8f1a25fb290234ecf16dce14ebbfa2
+    home: https://maxirus.github.io/helm-charts/bitwarden-rs
+    keywords:
+    - bitwarden
+    - bitwarden_rs
+    - password
+    - manager
+    name: bitwarden-rs
+    sources:
+    - https://github.com/maxirus/helm-charts/bitwarden-rs
+    - https://github.com/dani-garcia/bitwarden_rs
+    type: application
+    urls:
+    - https://maxirus.github.io/helm-charts/bitwarden-rs-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: 1.13.1
+    created: "2020-04-05T15:09:25.840901-04:00"
+    dependencies:
+    - condition: mysql.enabled
+      name: mysql
+      repository: https://kubernetes-charts.storage.googleapis.com/
+      version: 1.6.2
+    description: A Helm chart to deploy Bitwarden_RS and the MySQL backend
+    digest: 6c601499d0f177bb9b5da53d9b08f7de1fc76e72c7059434104cf2191210af9c
+    home: https://maxirus.github.io/helm-charts/bitwarden-rs
+    keywords:
+    - bitwarden
+    - bitwarden_rs
+    - password
+    - manager
+    name: bitwarden-rs
+    sources:
+    - https://github.com/maxirus/helm-charts/bitwarden-rs
+    - https://github.com/dani-garcia/bitwarden_rs
+    type: application
+    urls:
+    - https://maxirus.github.io/helm-charts/bitwarden-rs-0.1.0.tgz
+    version: 0.1.0
+  freenas-provisioner:
+  - apiVersion: v2
+    appVersion: "2.6"
+    created: "2020-05-10T21:25:19.963193-04:00"
+    description: A Helm chart for deploying the FreeNAS-Provisioner
+    digest: 75456103531a475fb7dcc72c448e916d6877ccfd9ce7457250987c1390d83310
+    home: https://maxirus.github.io/helm-charts/freenas-provisioner
+    keywords:
+    - freenas
+    - storageclass
+    - kubernetes
+    name: freenas-provisioner
+    sources:
+    - https://github.com/maxirus/helm-charts/freenas-provisioner
+    - https://github.com/nmaupu/freenas-provisioner
+    type: application
+    urls:
+    - https://maxirus.github.io/helm-charts/freenas-provisioner-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: "2.5"
+    created: "2020-04-05T15:09:25.851823-04:00"
+    description: A Helm chart for deploying the FreeNAS-Provisioner
+    digest: aa19fac7617ac58e5bf5e2200b3d7eaf9dda9d0be675634b7bbf76c04443bf74
+    home: https://maxirus.github.io/helm-charts/freenas-provisioner
+    keywords:
+    - freenas
+    - storageclass
+    - kubernetes
+    name: freenas-provisioner
+    sources:
+    - https://github.com/maxirus/helm-charts/freenas-provisioner
+    - https://github.com/nmaupu/freenas-provisioner
+    type: application
+    urls:
+    - https://maxirus.github.io/helm-charts/freenas-provisioner-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: "2.5"
+    created: "2020-04-05T15:09:25.850528-04:00"
+    description: A Helm chart for deploying the FreeNAS-Provisioner
+    digest: 97703f4b1288f149856b50ca5e79fb8c222ce02fe6ddeab0c7e7ab133eef8b39
+    home: https://maxirus.github.io/helm-charts/freenas-provisioner
+    keywords:
+    - freenas
+    - storageclass
+    - kubernetes
+    name: freenas-provisioner
+    sources:
+    - https://github.com/maxirus/helm-charts/freenas-provisioner
+    - https://github.com/nmaupu/freenas-provisioner
+    type: application
+    urls:
+    - https://maxirus.github.io/helm-charts/freenas-provisioner-0.1.0.tgz
+    version: 0.1.0
+  jellyfin:
+  - apiVersion: v2
+    appVersion: 10.5.2
+    created: "2020-04-05T15:09:25.858569-04:00"
+    description: A Helm chart for deploying Jellyfin on Kubernetes
+    digest: 40894e0fb749b48fa4de62e2de64b9af9e422a277f311da6448f585a408097d7
+    name: jellyfin
+    type: application
+    urls:
+    - https://maxirus.github.io/helm-charts/jellyfin-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: 10.4.3
+    created: "2020-04-05T15:09:25.857497-04:00"
+    description: A Helm chart for deploying Jellyfin on Kubernetes
+    digest: f6c89468aa35b44f9f7d8380a94a26dc6ed91dc97f79e10b0d9fd7765c5e6bfb
+    name: jellyfin
+    type: application
+    urls:
+    - https://maxirus.github.io/helm-charts/jellyfin-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 10.4.3
+    created: "2020-04-05T15:09:25.853531-04:00"
+    description: A Helm chart for deploying Jellyfin on Kubernetes
+    digest: 78c5f016c399591d0ffa0c045fa42d85ea509560303da3aa4618482f534b9a49
+    name: jellyfin
+    type: application
+    urls:
+    - https://maxirus.github.io/helm-charts/jellyfin-0.1.0.tgz
+    version: 0.1.0
+  motioneye:
+  - apiVersion: v2
+    appVersion: 0.42.0
+    created: "2020-04-05T15:09:25.862585-04:00"
+    description: A Helm chart to deploy motionEye in Kubernetes
+    digest: 6be9f2dccb431a2cceb80692698697bc11352bea5a8dda000f1ff9d657008191
+    name: motioneye
+    type: application
+    urls:
+    - https://maxirus.github.io/helm-charts/motioneye-0.1.0.tgz
+    version: 0.1.0
+generated: "2020-04-05T15:09:25.830504-04:00"
