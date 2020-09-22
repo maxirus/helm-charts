@@ -1,0 +1,91 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "jellyfin.fullname" . }}
+  labels:
+    {{- include "jellyfin.labels" . | nindent 4 }}
+spec:
+  strategy:
+    type: Recreate
+  replicas: 1 # Statically set 1 until PGSQL/MySQL is supported {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "jellyfin.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "jellyfin.selectorLabels" . | nindent 8 }}
+    spec:
+    {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+      serviceAccountName: {{ include "jellyfin.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ include "jellyfin.imageTag" . }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 8096
+              protocol: TCP
+          # TODO: Find a good health port
+          # livenessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          volumeMounts:
+            - mountPath: /config
+              name: config
+            - mountPath: /media
+              name: media
+            - mountPath: /cache
+              name: cache
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      volumes:
+        - name: config
+        {{- if .Values.persistence.config.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ include "jellyfin.configPVCName" . }}
+        {{- else }}
+          emptyDir: {}
+        {{- end }}
+        - name: media
+        {{- if .Values.persistence.media.nfs.server }}
+          nfs:
+            server: {{ .Values.persistence.media.nfs.server }}
+            path: {{ .Values.persistence.media.nfs.path }}
+        {{- else if .Values.persistence.media.pvc.enabled -}}
+          persistentVolumeClaim:
+            claimName: {{ include "jellyfin.mediaPVCName" . }}
+        {{- else }}
+          emptyDir: {}
+        {{- end }}
+        - name: cache
+        {{- if .Values.persistence.cache.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ include "jellyfin.cachePVCName" . }}
+        {{- else }}
+          emptyDir: {}
+        {{- end }}
+        {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
