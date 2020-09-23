@@ -1,0 +1,15 @@
+apiVersion: v2
+name: motioneye
+description: A Helm chart to deploy motionEye in Kubernetes
+type: application
+version: 0.1.0
+appVersion: 0.42.0
+keywords:
+  - motioneye
+  - nvr
+  - camera
+  - security
+home: https://github.com/maxirus/helm-charts/tree/master/charts/motioneye
+sources:
+    - https://github.com/maxirus/helm-charts/tree/master/charts/motioneye
+    - https://github.com/jellyfin/jellyfin

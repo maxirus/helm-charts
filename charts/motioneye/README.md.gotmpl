@@ -1,0 +1,39 @@
+{{ template "chart.header" . }}
+{{ template "chart.deprecationWarning" . }}
+
+{{ template "chart.versionBadge" . }}{{ template "chart.typeBadge" . }}{{ template "chart.appVersionBadge" . }}
+
+{{ template "chart.description" . }}
+
+{{ template "chart.homepageLine" . }}
+
+## Install
+
+Using [Helm](https://helm.sh), you can easily install and test motionEye in a 
+Kubernetes cluster by running the following:
+
+#### amd64
+```bash
+helm upgrade --install \
+  my-release
+  maxirus/motioneye
+```
+
+#### armhf (RaspberryPi)
+```bash
+helm upgrade --install \
+  my-release
+  maxirus/motioneye \
+  --set image.tag=0.42-armhf
+```
+
+#### Knonw Limitations
+- This chart currently does not support GPU resources
+
+{{ template "chart.maintainersSection" . }}
+
+{{ template "chart.sourcesSection" . }}
+
+{{ template "chart.requirementsSection" . }}
+
+{{ template "chart.valuesSection" . }}
