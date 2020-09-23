@@ -1,0 +1,57 @@
+{{ template "chart.header" . }}
+{{ template "chart.deprecationWarning" . }}
+
+{{ template "chart.versionBadge" . }}{{ template "chart.typeBadge" . }}{{ template "chart.appVersionBadge" . }}
+
+{{ template "chart.description" . }}
+
+This Helm Chart deploys the [dani-garcia/bitwarden_rs](https://github.com/dani-garcia/bitwarden_rs) project, using the MySQL backend, into your Kubernetes cluster. It provides a secure, central password management utility.
+
+{{ template "chart.homepageLine" . }}
+
+## Install
+
+Using [Helm](https://helm.sh), you can easily install and test Bitwarden_rs in a 
+Kubernetes cluster by running the following:
+
+```
+helm upgrade --install \
+  my-release
+  maxirus/bitwarden-rs \
+```
+
+**NOTE:**
+- For *production* installs, it is highly-recommended to configure persistence, SSL, passwords, etc. See configuration values below.
+- Depending on your browser, you will most likely need to setup HTTPS (See `ingress` below)
+
+{{ template "chart.maintainersSection" . }}
+
+{{ template "chart.sourcesSection" . }}
+
+{{ template "chart.requirementsSection" . }}
+
+{{ template "chart.valuesSection" . }}
+
+## Using an external MySQL Database
+
+To use an external MySQL Database and **not** deploy the included MySQL sub-chart, set the following:
+```yaml
+mysql:
+  enabled: false
+  externalHost: mysql.domain.tld
+```
+
+## Security Concerns
+
+1. Although traffic from you browser to the ingress endpoint is encrypted, the traffic being proxied from the 
+ingress to the web service is **NOT** by default. You must use the `ROCKET_TLS` environment variable or use a service mesh like LinkerD.
+2. Communication between the Web Service and MySQL is **NOT** encrypted by default. Follow the ssl configuration docs found [here](https://github.com/helm/charts/tree/master/stable/mysql#configuration).
+3. Making this service Publicly accessible to the internet is a bad idea. Use a VPN instead.
+
+## Further Reading
+
+Checkout the [dani-garcia/bitwarden_rs](https://github.com/dani-garcia/bitwarden_rs) project for more details on Bitwarden_rs.
+
+These Docs are not meant to be comprehensive in nature. You should fully understand the security aspects of running your own 
+central password management service before using this. I'd highly recommend using the [Official Bitwarden](https://bitwarden.com) service instead 
+if you have any doubts. 
