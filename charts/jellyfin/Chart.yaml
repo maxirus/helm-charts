@@ -1,8 +1,13 @@
 apiVersion: v2
 name: jellyfin
 description: A Helm chart for deploying Jellyfin on Kubernetes
-
 type: application
-
-version: 0.2.0
+version: 0.2.1
 appVersion: 10.5.2
+keywords:
+  - jellyfin
+  - media
+home: https://github.com/maxirus/helm-charts/tree/master/charts/jellyfin
+sources:
+    - https://github.com/maxirus/helm-charts/tree/master/charts/jellyfin
+    - https://github.com/jellyfin/jellyfin
