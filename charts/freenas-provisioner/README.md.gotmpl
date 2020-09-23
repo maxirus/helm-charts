@@ -1,0 +1,74 @@
+{{ template "chart.header" . }}
+{{ template "chart.deprecationWarning" . }}
+
+{{ template "chart.versionBadge" . }}{{ template "chart.typeBadge" . }}{{ template "chart.appVersionBadge" . }}
+
+{{ template "chart.description" . }}
+
+This Helm Chart deploys the [nmaupu/freenas-provisioner](https://github.com/nmaupu/freenas-provisioner) into your Kubernetes cluster. It provides a StorageClass that is backed by FreeNAS via NFS.
+
+{{ template "chart.homepageLine" . }}
+
+## Setup
+
+Create a new Dataset in your FreeNAS pool that will be dedicated to Kubernetes PVCs.
+
+Under Services, make sure the NFS service is running and that the *Start Automatically* box is checked. Next click on the *Configure* icon and check your settings. If `Enable NFSv4` is checked, ensure `NFSv3 ownership model for NFSv4` is also checked as this will cause issues for containers that need to chown/chmod files/directories.
+
+For each Kubernetes node in your cluster, install the nfs client utils:
+
+*Ubuntu/Debian:*
+```sh
+sudo apt-get update
+sudo apt-get -y install nfs-common
+```
+
+*CentOS/RHEL*
+```sh
+sudo yum makecache fast
+sudo yum -y install nfs-utils
+```
+
+## Install
+
+Using [Helm](https://helm.sh), you can easily install the FreeNAS Provisioner in a 
+Kubernetes cluster by running the following:
+
+```
+helm upgrade --install \
+  my-release
+  maxirus/freenas-provisioner \
+  --set 'freenasConfig.host=<ip_or_hostname>' \
+  --set 'storageClass.parameters.datasetParentName=<pool/dataset_name>' \
+  --set 'freenasConfig.password=<root_password>
+```
+
+## Known Limitations
+- Doesn't work well when using a `securityContext`
+
+{{ template "chart.maintainersSection" . }}
+
+{{ template "chart.sourcesSection" . }}
+
+{{ template "chart.requirementsSection" . }}
+
+{{ template "chart.valuesSection" . }}
+
+## K3s Notes
+
+If running on K3s and you would like to make this the default StorageClass, follow these steps:
+
+1) Disable `local-path` as the default *StorageClass*
+```sh
+$ kubectl patch storageclass local-path -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"false"}}}'
+```
+2) Set the following in your `values.yaml`
+```yaml
+storageClass:
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "true"
+```
+
+## Futher Reading
+
+For further information, see the [nmaupu/freenas-provisioner](https://github.com/nmaupu/freenas-provisioner) project.
