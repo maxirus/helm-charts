@@ -179,6 +179,23 @@ entries:
   jellyfin:
   - apiVersion: v2
     appVersion: 10.5.2
+    created: "2020-09-23T00:39:47.648515274Z"
+    description: A Helm chart for deploying Jellyfin on Kubernetes
+    digest: 065f59f2f5370930a3c2d047e9929920726240fe7407e877899cd6b99026bb0b
+    home: https://github.com/maxirus/helm-charts/tree/master/charts/jellyfin
+    keywords:
+    - jellyfin
+    - media
+    name: jellyfin
+    sources:
+    - https://github.com/maxirus/helm-charts/tree/master/charts/jellyfin
+    - https://github.com/jellyfin/jellyfin
+    type: application
+    urls:
+    - https://github.com/maxirus/helm-charts/releases/download/jellyfin-0.2.1/jellyfin-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
+    appVersion: 10.5.2
     created: "2020-04-05T15:09:25.858569-04:00"
     description: A Helm chart for deploying Jellyfin on Kubernetes
     digest: 40894e0fb749b48fa4de62e2de64b9af9e422a277f311da6448f585a408097d7
