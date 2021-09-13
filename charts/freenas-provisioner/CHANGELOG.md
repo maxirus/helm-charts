@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.1] - 2021-09-13
+### Updated
+- freenas-provisioner to `v2.7` to fix issues with K8s v1.20
+
 ## [0.2.0] - 2020-05-10
 ### Added
 - Option to override the Docker image tag used via value `image.tag`

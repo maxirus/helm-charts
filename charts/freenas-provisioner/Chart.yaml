@@ -2,8 +2,8 @@ apiVersion: v2
 name: freenas-provisioner
 description: A Helm chart for deploying the FreeNAS-Provisioner
 type: application
-version: 0.2.0
-appVersion: 2.6
+version: 0.2.1
+appVersion: 2.7
 keywords:
   - freenas
   - storageclass
