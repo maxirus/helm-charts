@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2] - 2021-09-14
+### Fixed
+- Docs
+
 ## [0.1.1] - 2021-09-13
 ### Added
 - Navidrome chart
