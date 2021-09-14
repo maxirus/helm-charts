@@ -85,7 +85,7 @@ Sets the name of the config PVC
 {{- end -}}
 
 {{/*
-Sets the name of the config PVC
+Sets the name of the cache PVC
 */}}
 {{- define "jellyfin.cachePVCName" -}}
 {{- if .Values.persistence.cache.existingClaim -}}
