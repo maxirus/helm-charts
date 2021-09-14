@@ -123,6 +123,24 @@ entries:
     version: 0.1.0
   freenas-provisioner:
   - apiVersion: v2
+    appVersion: "2.7"
+    created: "2021-09-14T02:27:54.567535113Z"
+    description: A Helm chart for deploying the FreeNAS-Provisioner
+    digest: a0874d0dbeda6ba6ba1f06f9f8d4f9636553a7434ff9b7c3b4ef9470d3f0f5c7
+    home: https://github.com/maxirus/helm-charts/tree/master/charts/freenas-provisioner
+    keywords:
+    - freenas
+    - storageclass
+    - kubernetes
+    name: freenas-provisioner
+    sources:
+    - https://github.com/maxirus/helm-charts/tree/master/charts/freenas-provisioner
+    - https://github.com/nmaupu/freenas-provisioner
+    type: application
+    urls:
+    - https://github.com/maxirus/helm-charts/releases/download/freenas-provisioner-0.2.1/freenas-provisioner-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
     appVersion: "2.6"
     created: "2020-05-10T21:25:19.963193-04:00"
     description: A Helm chart for deploying the FreeNAS-Provisioner
@@ -218,4 +236,4 @@ entries:
     urls:
     - https://maxirus.github.io/helm-charts/motioneye-0.1.0.tgz
     version: 0.1.0
-generated: "2020-04-05T15:09:25.830504-04:00"
+generated: "2021-09-14T02:27:54.567595318Z"
