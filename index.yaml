@@ -221,9 +221,9 @@ entries:
   navidrome:
   - apiVersion: v2
     appVersion: 0.45.1
-    created: "2021-09-14T03:00:41.696455514Z"
+    created: "2021-09-14T19:58:54.245637273Z"
     description: A Helm chart to deploy Navidrome
-    digest: 717c9da1dc6f85f5d13c71b407939405f97b405aba35a73f74b631887b4c7020
+    digest: c55b57ac5857b585b543746ec908f4d2910f58a255251e5c69d3d9bb5507535a
     home: https://github.com/maxirus/helm-charts/tree/master/charts/navidrome
     keywords:
     - navidrome
@@ -235,6 +235,6 @@ entries:
     - https://github.com/navidrome/navidrome/
     type: application
     urls:
-    - https://github.com/maxirus/helm-charts/releases/download/navidrome-0.1.1/navidrome-0.1.1.tgz
-    version: 0.1.1
-generated: "2021-09-14T03:00:41.696486414Z"
+    - https://github.com/maxirus/helm-charts/releases/download/navidrome-0.1.2/navidrome-0.1.2.tgz
+    version: 0.1.2
+generated: "2021-09-14T19:58:54.245672973Z"
