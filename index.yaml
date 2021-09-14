@@ -178,23 +178,6 @@ entries:
     version: 0.1.0
   jellyfin:
   - apiVersion: v2
-    appVersion: 10.7.7
-    created: "2021-09-14T02:40:02.979704534Z"
-    description: A Helm chart for deploying Jellyfin on Kubernetes
-    digest: 8abc9ee06268e6df1f78d7458d2e08ee205dc134d6130aba620d29f21bc176c9
-    home: https://github.com/maxirus/helm-charts/tree/master/charts/jellyfin
-    keywords:
-    - jellyfin
-    - media
-    name: jellyfin
-    sources:
-    - https://github.com/maxirus/helm-charts/tree/master/charts/jellyfin
-    - https://github.com/jellyfin/jellyfin
-    type: application
-    urls:
-    - https://github.com/maxirus/helm-charts/releases/download/jellyfin-0.3.0/jellyfin-0.3.0.tgz
-    version: 0.3.0
-  - apiVersion: v2
     appVersion: 10.5.2
     created: "2020-04-05T15:09:25.858569-04:00"
     description: A Helm chart for deploying Jellyfin on Kubernetes
@@ -235,4 +218,23 @@ entries:
     urls:
     - https://maxirus.github.io/helm-charts/motioneye-0.1.0.tgz
     version: 0.1.0
-generated: "2021-09-14T02:40:02.979737734Z"
+  navidrome:
+  - apiVersion: v2
+    appVersion: 0.45.1
+    created: "2021-09-14T03:00:41.696455514Z"
+    description: A Helm chart to deploy Navidrome
+    digest: 717c9da1dc6f85f5d13c71b407939405f97b405aba35a73f74b631887b4c7020
+    home: https://github.com/maxirus/helm-charts/tree/master/charts/navidrome
+    keywords:
+    - navidrome
+    - media
+    - subsonic
+    name: navidrome
+    sources:
+    - https://github.com/maxirus/helm-charts/tree/master/charts/navidrome
+    - https://github.com/navidrome/navidrome/
+    type: application
+    urls:
+    - https://github.com/maxirus/helm-charts/releases/download/navidrome-0.1.1/navidrome-0.1.1.tgz
+    version: 0.1.1
+generated: "2021-09-14T03:00:41.696486414Z"
