@@ -1,0 +1,113 @@
+# freenas-provisioner
+
+![Version: 0.2.1](https://img.shields.io/badge/Version-0.2.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.7](https://img.shields.io/badge/AppVersion-2.7-informational?style=flat-square)
+
+A Helm chart for deploying the FreeNAS-Provisioner
+
+This Helm Chart deploys the [nmaupu/freenas-provisioner](https://github.com/nmaupu/freenas-provisioner) into your Kubernetes cluster. It provides a StorageClass that is backed by FreeNAS via NFS.
+
+**Homepage:** <https://github.com/maxirus/helm-charts/tree/master/charts/freenas-provisioner>
+
+## Setup
+
+Create a new Dataset in your FreeNAS pool that will be dedicated to Kubernetes PVCs.
+
+Under Services, make sure the NFS service is running and that the *Start Automatically* box is checked. Next click on the *Configure* icon and check your settings. If `Enable NFSv4` is checked, ensure `NFSv3 ownership model for NFSv4` is also checked as this will cause issues for containers that need to chown/chmod files/directories.
+
+For each Kubernetes node in your cluster, install the nfs client utils:
+
+*Ubuntu/Debian:*
+```sh
+sudo apt-get update
+sudo apt-get -y install nfs-common
+```
+
+*CentOS/RHEL*
+```sh
+sudo yum makecache fast
+sudo yum -y install nfs-utils
+```
+
+## Install
+
+Using [Helm](https://helm.sh), you can easily install the FreeNAS Provisioner in a
+Kubernetes cluster by running the following:
+
+```
+helm upgrade --install \
+  my-release
+  maxirus/freenas-provisioner \
+  --set 'freenasConfig.host=<ip_or_hostname>' \
+  --set 'storageClass.parameters.datasetParentName=<pool/dataset_name>' \
+  --set 'freenasConfig.password=<root_password>
+```
+
+## Known Limitations
+- Doesn't work well when using a `securityContext`
+
+## Source Code
+
+* <https://github.com/maxirus/helm-charts/tree/master/charts/freenas-provisioner>
+* <https://github.com/nmaupu/freenas-provisioner>
+
+## Values
+
+| Key | Type | Default | Description |
+|-----|------|---------|-------------|
+| affinity | object | `{}` | Set Pod affinity rules |
+| freenasConfig.allowInsecure | bool | `false` | Allow for self-signed/untrusted certs if using https |
+| freenasConfig.host | string | `"localhost"` | Host at which FreeNAS can be reached at. Set to localhost for running the provisioner out of cluster directly on FreeNAS node |
+| freenasConfig.port | int | `80` | Port FreeNAS is running on. Usually 80 for http and 443 for https |
+| freenasConfig.protocol | string | `"http"` | Protocol to use to access the FreeNAS API. Valid values are http or https |
+| freenasConfig.secretName | string | `"freenas-nfs"` | name of the secret which contains FreeNAS server connection details |
+| freenasConfig.useExistingSecret | bool | `false` | Set this to true to use your own Secret, created outside of this deployment |
+| freenasConfig.username | string | `"root"` | Do not change. API is only available for root currently |
+| fullnameOverride | string | `""` | Overrides the Full Name of resources |
+| image.pullPolicy | string | `"IfNotPresent"` | Docker image pull policy |
+| image.pullSecrets | list | `[]` | Secrets to use when pulling Docker images |
+| image.repository | string | `"docker.io/nmaupu/freenas-provisioner"` | Docker registry/repository to pull the image from |
+| image.tag | string | `nil` | Overrides the image tag used |
+| nameOverride | string | `""` | Overrides the name of resources |
+| nodeSelector | object | `{}` | Node Selector configuration |
+| podSecurityContext | object | `{}` | Set Pod security contexts |
+| replicaCount | int | `1` | Number of pods to run |
+| resources | object | `{}` | Set resource limits/requests for the Pod(s) |
+| securityContext | object | `{}` | Set Security Context |
+| serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
+| storageClass.annotations | object | `{}` | (Optional) annotations to add to the StorageClass. ie. storageclass.kubernetes.io/is-default-class: "true" |
+| storageClass.parameters.datasetDeterministicNames | string | `"true"` | if enabled created datasets will adhere to reliable pattern. if datasetNamespaces == true dataset pattern is: <datasetParentName>/<namespace>/<PVC Name>. if datasetNamespaces == false dataset pattern is: <datasetParentName>/<namespace>-<PVC Name>. if disabled, datasets will be created with a name pvc-<uid> (the name of the provisioned PV). |
+| storageClass.parameters.datasetEnableNamespaces | string | `"true"` | if enabled provisioner will create parent datasets for each namespace otherwise, all datasets will be provisioned in a flat manner |
+| storageClass.parameters.datasetEnableQuotas | string | `"true"` | whether to enforce quotas for each dataset. If enabled each newly provisioned dataset will set the appropriate quota per the PVC |
+| storageClass.parameters.datasetEnableReservation | string | `"true"` | whether to reserve space when the dataset is created. If enabled each newly provisioned dataset will set the appropriate value per the PVC |
+| storageClass.parameters.datasetParentName | string | `"tank"` | the name of the parent dataset (or simply pool) where all resources will be created, it *must* exist before provisioner will work. ie tank/k8s/mycluster |
+| storageClass.parameters.datasetPermissionsGroup | string | `"wheel"` | Sets group of the dataset mount directory (on FreeNAS) immediately upon creation |
+| storageClass.parameters.datasetPermissionsMode | string | `"0777"` | Sets chmod of the dataset mount directory (on FreeNAS) immediately upon creation |
+| storageClass.parameters.datasetPermissionsUser | string | `"root"` | Sets user of the dataset mount directory (on FreeNAS) immediately upon creation |
+| storageClass.parameters.datasetRetainPreExisting | string | `"true"` | if enabled and datasetDeterministicNames is enabled then dataset that already exist (pre-provisioned out of band) will be retained by the provisioner during deletion of the reclaim process ignored if datasetDeterministicNames is disabled (collisions result in failure) |
+| storageClass.parameters.shareAlldirs | string | `"true"` | Determines if newly created NFS shares will have the 'All Directories' option checked - note that some k8s versions (e.g OKD 3.11 which has v1.11.0 under the hood) may demand Strings as in "true" or "false". |
+| storageClass.parameters.shareAllowedHosts | string | `""` | Authorized hosts (space-separated) allowed to access the shares. All by default. |
+| storageClass.parameters.shareAllowedNetworks | string | `""` | Authorized hosts/networks (space-separated) allowed to access the shares. All by default. |
+| storageClass.parameters.shareMaprootGroup | string | `"wheel"` | Determines root group mapping. NOTE: cannot be used simultaneously with shareMapAll{User,Group} |
+| storageClass.parameters.shareMaprootUser | string | `"root"` | Determines root user mapping. NOTE: cannot be used simultaneously with shareMapAll{User,Group} |
+| storageClass.parameters.shareRetainPreExisting | string | `"true"` | if enabled and datasetDeterministicNames is enabled then shares that already exist (pre-provisioned out of band) will be retained by the provisioner during deletion of the reclaim process ignored if datasetDeterministicNames is disabled (collisions result in failure) |
+| storageClass.reclaimPolicy | string | `"Delete"` | Reclaim Policy to use for created PVCs |
+| tolerations | list | `[]` | Node toleration configuration |
+
+## K3s Notes
+
+If running on K3s and you would like to make this the default StorageClass, follow these steps:
+
+1) Disable `local-path` as the default *StorageClass*
+```sh
+$ kubectl patch storageclass local-path -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"false"}}}'
+```
+2) Set the following in your `values.yaml`
+```yaml
+storageClass:
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "true"
+```
+
+## Futher Reading
+
+For further information, see the [nmaupu/freenas-provisioner](https://github.com/nmaupu/freenas-provisioner) project.
