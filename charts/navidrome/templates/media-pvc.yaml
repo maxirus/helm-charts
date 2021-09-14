@@ -1,0 +1,25 @@
+{{- if and .Values.persistence.music.pvc.enabled (not .Values.persistence.music.pvc.existingClaim) }}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ include "navidrome.musicPVCName" . }}
+  labels:
+    {{- include "navidrome.labels" . | nindent 4 }}
+{{- with .Values.persistence.music.pvc.annotations  }}
+  annotations:
+{{ toYaml . | indent 4 }}
+{{- end }}
+spec:
+  accessModes:
+    - {{ .Values.persistence.music.pvc.accessMode | quote }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.music.pvc.size | quote }}
+{{- if .Values.persistence.music.pvc.storageClass }}
+{{- if (eq "-" .Values.persistence.music.pvc.storageClass) }}
+  storageClassName: ""
+{{- else }}
+  storageClassName: "{{ .Values.persistence.music.pvc.storageClass }}"
+{{- end }}
+{{- end }}
+{{- end }}

@@ -1,0 +1,14 @@
+apiVersion: v2
+name: navidrome
+description: A Helm chart to deploy Navidrome
+type: application
+version: 0.1.1
+appVersion: 0.45.1
+keywords:
+  - navidrome
+  - media
+  - subsonic
+home: https://github.com/maxirus/helm-charts/tree/master/charts/navidrome
+sources:
+  - https://github.com/maxirus/helm-charts/tree/master/charts/navidrome
+  - https://github.com/navidrome/navidrome/
