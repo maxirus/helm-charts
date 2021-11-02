@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.0] - 2021-11-02
+### Updated
+- Bitwarden_rs renamed to vaultwarden. Changed Image repo accordingly
+- application version to `v1.23.0`
+
 ## [0.4.1] - 2020-05-11
 ### Fixed
 - Bitwarden_rs `v1.14` now expects `DOMAIN` to be a full URL 

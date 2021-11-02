@@ -49,7 +49,7 @@ helm upgrade --install \
 | fullnameOverride | string | `""` | Overrides the Full Name of resources |
 | image.pullPolicy | string | `"IfNotPresent"` | Docker image pull policy |
 | image.pullSecrets | list | `[]` | Secrets to use when pulling Docker images |
-| image.repository | string | `"bitwardenrs/server-mysql"` | Docker registry/repository to pull the image from |
+| image.repository | string | `"vaultwarden/server"` | Docker registry/repository to pull the image from |
 | image.tag | string | `nil` | Overrides the image tag used |
 | ingress.annotations | object | `{}` | annotations to configure your Ingress. See your Ingress Controller's Docs for more info. |
 | ingress.enabled | bool | `false` | Enables the use of an Ingress Controller to front the Service and provide HTTPS |

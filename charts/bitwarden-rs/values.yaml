@@ -8,7 +8,7 @@ replicaCount: 1
 image:
 
   # image.repository -- Docker registry/repository to pull the image from
-  repository: bitwardenrs/server-mysql
+  repository: vaultwarden/server
 
   # image.tag -- Overrides the image tag used
   tag:
