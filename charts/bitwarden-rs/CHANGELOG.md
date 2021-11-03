@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Updated
 - Bitwarden_rs renamed to vaultwarden. Changed Image repo accordingly
 - application version to `v1.23.0`
+- MySQL chart version to `v1.6.9`
+### Fixed
+- MySQL Chart repo
 
 ## [0.4.1] - 2020-05-11
 ### Fixed
