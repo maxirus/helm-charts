@@ -32,7 +32,7 @@ helm upgrade --install \
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://kubernetes-charts.storage.googleapis.com/ | mysql | 1.6.2 |
+| https://helm.wso2.com | mysql | 1.6.9 |
 
 ## Values
 
