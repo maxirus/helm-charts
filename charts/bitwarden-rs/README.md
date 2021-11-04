@@ -1,8 +1,8 @@
 # bitwarden-rs
 
-![Version: 0.5.0](https://img.shields.io/badge/Version-0.5.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.23.0](https://img.shields.io/badge/AppVersion-1.23.0-informational?style=flat-square)
+![Version: 0.5.1](https://img.shields.io/badge/Version-0.5.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.23.0](https://img.shields.io/badge/AppVersion-1.23.0-informational?style=flat-square)
 
-A Helm chart to deploy Bitwarden_RS and the MySQL backend
+A Helm chart to deploy VaultWarden and the MySQL backend
 
 This Helm Chart deploys the [dani-garcia/bitwarden_rs](https://github.com/dani-garcia/bitwarden_rs) project, using the MySQL backend, into your Kubernetes cluster. It provides a secure, central password management utility.
 

@@ -1,8 +1,8 @@
 apiVersion: v2
 name: bitwarden-rs
-description: A Helm chart to deploy Bitwarden_RS and the MySQL backend
+description: A Helm chart to deploy VaultWarden and the MySQL backend
 type: application
-version: 0.5.0
+version: 0.5.1
 appVersion: 1.23.0
 keywords:
   - bitwarden
