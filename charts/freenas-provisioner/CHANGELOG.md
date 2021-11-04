@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.2] - 2021-11-03
+### Fixed
+- Documentation for the Docs
+
 ## [0.2.1] - 2021-09-13
 ### Updated
 - freenas-provisioner to `v2.7` to fix issues with K8s v1.20

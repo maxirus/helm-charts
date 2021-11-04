@@ -1,6 +1,6 @@
 # freenas-provisioner
 
-![Version: 0.2.1](https://img.shields.io/badge/Version-0.2.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.7](https://img.shields.io/badge/AppVersion-2.7-informational?style=flat-square)
+![Version: 0.2.2](https://img.shields.io/badge/Version-0.2.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.7](https://img.shields.io/badge/AppVersion-2.7-informational?style=flat-square)
 
 A Helm chart for deploying the FreeNAS-Provisioner
 
@@ -57,6 +57,7 @@ helm upgrade --install \
 | affinity | object | `{}` | Set Pod affinity rules |
 | freenasConfig.allowInsecure | bool | `false` | Allow for self-signed/untrusted certs if using https |
 | freenasConfig.host | string | `"localhost"` | Host at which FreeNAS can be reached at. Set to localhost for running the provisioner out of cluster directly on FreeNAS node |
+| freenasConfig.password | string | `nil` |  |
 | freenasConfig.port | int | `80` | Port FreeNAS is running on. Usually 80 for http and 443 for https |
 | freenasConfig.protocol | string | `"http"` | Protocol to use to access the FreeNAS API. Valid values are http or https |
 | freenasConfig.secretName | string | `"freenas-nfs"` | name of the secret which contains FreeNAS server connection details |
@@ -74,8 +75,9 @@ helm upgrade --install \
 | resources | object | `{}` | Set resource limits/requests for the Pod(s) |
 | securityContext | object | `{}` | Set Security Context |
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
+| serviceAccount.name | string | `nil` | name of the service account to use. If not set and create is true, a name is generated using the fullname template |
 | storageClass.annotations | object | `{}` | (Optional) annotations to add to the StorageClass. ie. storageclass.kubernetes.io/is-default-class: "true" |
-| storageClass.parameters.datasetDeterministicNames | string | `"true"` | if enabled created datasets will adhere to reliable pattern. if datasetNamespaces == true dataset pattern is: <datasetParentName>/<namespace>/<PVC Name>. if datasetNamespaces == false dataset pattern is: <datasetParentName>/<namespace>-<PVC Name>. if disabled, datasets will be created with a name pvc-<uid> (the name of the provisioned PV). |
+| storageClass.parameters.datasetDeterministicNames | string | `"true"` | if enabled created datasets will adhere to reliable pattern. If datasetNamespaces == true dataset pattern is: <datasetParentName>/<namespace>/<PVC Name>. If datasetNamespaces == false dataset pattern is: <datasetParentName>/<namespace>-<PVC Name>. If disabled, datasets will be created with a name pvc-<uid> (the name of the provisioned PV). |
 | storageClass.parameters.datasetEnableNamespaces | string | `"true"` | if enabled provisioner will create parent datasets for each namespace otherwise, all datasets will be provisioned in a flat manner |
 | storageClass.parameters.datasetEnableQuotas | string | `"true"` | whether to enforce quotas for each dataset. If enabled each newly provisioned dataset will set the appropriate quota per the PVC |
 | storageClass.parameters.datasetEnableReservation | string | `"true"` | whether to reserve space when the dataset is created. If enabled each newly provisioned dataset will set the appropriate value per the PVC |
@@ -91,6 +93,7 @@ helm upgrade --install \
 | storageClass.parameters.shareMaprootUser | string | `"root"` | Determines root user mapping. NOTE: cannot be used simultaneously with shareMapAll{User,Group} |
 | storageClass.parameters.shareRetainPreExisting | string | `"true"` | if enabled and datasetDeterministicNames is enabled then shares that already exist (pre-provisioned out of band) will be retained by the provisioner during deletion of the reclaim process ignored if datasetDeterministicNames is disabled (collisions result in failure) |
 | storageClass.reclaimPolicy | string | `"Delete"` | Reclaim Policy to use for created PVCs |
+| storageClass.serverSecretNamespace | string | `nil` | Overrides the namespace of the secret which contains the FreeNAS server connection details. Default is this Release's Namespace |
 | tolerations | list | `[]` | Node toleration configuration |
 
 ## K3s Notes
