@@ -220,6 +220,24 @@ entries:
     version: 0.1.0
   navidrome:
   - apiVersion: v2
+    appVersion: 0.46.0
+    created: "2021-11-04T01:55:25.901379492Z"
+    description: A Helm chart to deploy Navidrome
+    digest: 71a2cb940573d8aa33e331b78845075fc4160013076d718b1a994bd903008856
+    home: https://github.com/maxirus/helm-charts/tree/master/charts/navidrome
+    keywords:
+    - navidrome
+    - media
+    - subsonic
+    name: navidrome
+    sources:
+    - https://github.com/maxirus/helm-charts/tree/master/charts/navidrome
+    - https://github.com/navidrome/navidrome/
+    type: application
+    urls:
+    - https://github.com/maxirus/helm-charts/releases/download/navidrome-0.2.0/navidrome-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
     appVersion: 0.45.1
     created: "2021-09-14T19:58:54.245637273Z"
     description: A Helm chart to deploy Navidrome
@@ -237,4 +255,4 @@ entries:
     urls:
     - https://github.com/maxirus/helm-charts/releases/download/navidrome-0.1.2/navidrome-0.1.2.tgz
     version: 0.1.2
-generated: "2021-09-14T19:58:54.245672973Z"
+generated: "2021-11-04T01:55:25.901420689Z"
