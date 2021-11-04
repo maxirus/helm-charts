@@ -2,7 +2,7 @@ apiVersion: v2
 name: navidrome
 description: A Helm chart to deploy Navidrome
 type: application
-version: 0.1.2
+version: 0.2.0
 appVersion: 0.46.0
 keywords:
   - navidrome
