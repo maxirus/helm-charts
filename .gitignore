@@ -3,3 +3,9 @@ ssl-cert.yaml
 Chart.lock
 .vscode/*.yaml
 plex/
+qbittorrent/
+shinobi/
+charts/mosquitto/
+charts/truenas-csp/
+charts/arr/
+charts/jackett/

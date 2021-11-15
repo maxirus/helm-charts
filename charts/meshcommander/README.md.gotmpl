@@ -1,0 +1,29 @@
+{{ template "chart.header" . }}
+{{ template "chart.deprecationWarning" . }}
+
+{{ template "chart.versionBadge" . }}{{ template "chart.typeBadge" . }}{{ template "chart.appVersionBadge" . }}
+
+{{ template "chart.description" . }}
+
+Refer to [MeshCommander](https://www.meshcommander.com/meshcommander) for more info.
+
+{{ template "chart.homepageLine" . }}
+
+## Install
+
+Using [Helm](https://helm.sh), you can easily install MeshCommander in a 
+Kubernetes cluster by running the following:
+
+```bash
+helm upgrade --install \
+  my-release
+  maxirus/meshcommander
+```
+
+{{ template "chart.maintainersSection" . }}
+
+{{ template "chart.sourcesSection" . }}
+
+{{ template "chart.requirementsSection" . }}
+
+{{ template "chart.valuesSection" . }}
