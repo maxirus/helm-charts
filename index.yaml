@@ -231,6 +231,17 @@ entries:
     urls:
     - https://maxirus.github.io/helm-charts/jellyfin-0.1.0.tgz
     version: 0.1.0
+  meshcommander:
+  - apiVersion: v2
+    appVersion: 0.9.1-1
+    created: "2021-11-15T21:56:27.284310572Z"
+    description: A Helm chart for Kubernetes
+    digest: 91b5ae94842eb8e59ead73cdd24a0fa38e8cc07e3e293bf25e1ca3b278b09f3e
+    name: meshcommander
+    type: application
+    urls:
+    - https://github.com/maxirus/helm-charts/releases/download/meshcommander-0.1.0/meshcommander-0.1.0.tgz
+    version: 0.1.0
   motioneye:
   - apiVersion: v2
     appVersion: 0.42.1
@@ -298,4 +309,4 @@ entries:
     urls:
     - https://github.com/maxirus/helm-charts/releases/download/navidrome-0.1.2/navidrome-0.1.2.tgz
     version: 0.1.2
-generated: "2021-11-04T02:23:51.497285056Z"
+generated: "2021-11-15T21:56:27.284355572Z"
