@@ -97,6 +97,15 @@ persistence:
     # persistence.cache.annotations -- (Optional) annotations to add to the PVC
     annotations: {}
 
+gpu:
+  nvidia:
+    
+    # -- Enables NVIDIA GPU functionality. Must have nvidia device plugin properly installed.
+    enabled: false
+    
+    # -- Set to override the runtime class. Leave blank to use default
+    runtimeClassName:
+
 serviceAccount:
   
   # serviceAccount.create -- Specifies whether a service account should be created

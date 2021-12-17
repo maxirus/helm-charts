@@ -16,6 +16,9 @@ spec:
       labels:
         {{- include "jellyfin.selectorLabels" . | nindent 8 }}
     spec:
+      {{- if and .Values.gpu.nvidia.enabled (.Values.gpu.nvidia.runtimeClassName) }}
+      runtimeClassName: {{ .Values.gpu.nvidia.runtimeClassName }}
+      {{- end }}
     {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
@@ -38,6 +41,13 @@ spec:
           #   httpGet:
           #     path: /
           #     port: http
+          env:
+            {{- if .Values.gpu.nvidia.enabled }}
+            - name: NVIDIA_DRIVER_CAPABILITIES
+              value: "all"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: "all"
+            {{- end }}
           readinessProbe:
             httpGet:
               path: /
@@ -50,7 +60,13 @@ spec:
             - mountPath: /cache
               name: cache
           resources:
+            {{- if .Values.gpu.nvidia.enabled }}
+            limits:
+              "nvidia.com/gpu": 1
+            {{- end }}
+            {{- if .Values.resources }}
             {{- toYaml .Values.resources | nindent 12 }}
+            {{- end }}
       volumes:
         - name: config
         {{- if .Values.persistence.config.enabled }}

@@ -6,33 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.3.1] - 2021-09-13
-### Updated
-- Moved to `charts/` dir
-
-## [0.3.0] - 2021-09-13
-### Updated
-- Jellyfin to `v10.7.7`
-### Fixed
-- Fixing typo
-
-
-## [0.2.1] - 2020-09-22
-### Fixed
-- Chart metadata
-
-## [0.2.0] - 2020-03-29
+## [0.4.0] - 2021-12-17
 ### Added
-- Ability to set `loadBalancerIP`
+- NVIDIA GPU Support
+
+## [0.3.1] - 2021-11-03
 ### Updated
-- appVersion to ```v10.5.2```
-
-## [0.1.1] - 2020-02-21
-### Fixed
 - Docs
-- Missing CHANGLELOG
-- Missing LICENSE
 
-## [0.1.0] - 2020-02-19
+## [0.1.0] - 2021-09-13
 ### Added
 - Initial Chart
+

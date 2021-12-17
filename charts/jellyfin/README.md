@@ -1,6 +1,6 @@
 # jellyfin
 
-![Version: 0.3.1](https://img.shields.io/badge/Version-0.3.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 10.7.7](https://img.shields.io/badge/AppVersion-10.7.7-informational?style=flat-square)
+![Version: 0.4.0](https://img.shields.io/badge/Version-0.4.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 10.7.7](https://img.shields.io/badge/AppVersion-10.7.7-informational?style=flat-square)
 
 A Helm chart for deploying Jellyfin on Kubernetes
 
@@ -35,6 +35,8 @@ helm upgrade --install \
 |-----|------|---------|-------------|
 | affinity | object | `{}` | Set Pod affinity rules |
 | fullnameOverride | string | `""` | Overrides the Full Name of resources |
+| gpu.nvidia.enabled | bool | `false` | Enables NVIDIA GPU functionality. Must have nvidia device plugin properly installed. |
+| gpu.nvidia.runtimeClassName | string | `nil` | Set to override the runtime class. Leave blank to use default |
 | image.pullPolicy | string | `"IfNotPresent"` | Docker image pull policy |
 | image.pullSecrets | list | `[]` | Secrets to use when pulling Docker images |
 | image.repository | string | `"jellyfin/jellyfin"` | Docker registry/repository to pull the image from |
