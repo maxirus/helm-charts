@@ -202,6 +202,23 @@ entries:
     version: 0.1.0
   jellyfin:
   - apiVersion: v2
+    appVersion: 10.7.7
+    created: "2021-12-17T21:34:32.212148217Z"
+    description: A Helm chart for deploying Jellyfin on Kubernetes
+    digest: 2e94e7d1ebe982b234fa3a07d0af01f0aa577d254701e1a8ac9dea7d661e89ca
+    home: https://github.com/maxirus/helm-charts/tree/master/charts/jellyfin
+    keywords:
+    - jellyfin
+    - media
+    name: jellyfin
+    sources:
+    - https://github.com/maxirus/helm-charts/tree/master/charts/jellyfin
+    - https://github.com/jellyfin/jellyfin
+    type: application
+    urls:
+    - https://github.com/maxirus/helm-charts/releases/download/jellyfin-0.4.0/jellyfin-0.4.0.tgz
+    version: 0.4.0
+  - apiVersion: v2
     appVersion: 10.5.2
     created: "2020-04-05T15:09:25.858569-04:00"
     description: A Helm chart for deploying Jellyfin on Kubernetes
@@ -309,4 +326,4 @@ entries:
     urls:
     - https://github.com/maxirus/helm-charts/releases/download/navidrome-0.1.2/navidrome-0.1.2.tgz
     version: 0.1.2
-generated: "2021-11-15T21:56:27.284355572Z"
+generated: "2021-12-17T21:34:32.212183218Z"
