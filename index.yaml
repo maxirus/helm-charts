@@ -200,6 +200,26 @@ entries:
     urls:
     - https://maxirus.github.io/helm-charts/freenas-provisioner-0.1.0.tgz
     version: 0.1.0
+  intel-gpu:
+  - apiVersion: v2
+    appVersion: 0.22.0
+    created: "2021-12-21T21:54:16.34611865Z"
+    description: A Helm chart to deploy the Intel GPU Device plugin on Kubernetes
+    digest: b3b198fc2c86a8821b0ea372d1db8d4b55d5633e1627220800207fbe262e24f5
+    home: https://github.com/maxirus/helm-charts/tree/master/charts/intel-gpu
+    keywords:
+    - intel
+    - gpu
+    - device
+    - plugin
+    name: intel-gpu
+    sources:
+    - https://github.com/maxirus/helm-charts/tree/master/charts/intel-gpu
+    - https://github.com/intel/intel-device-plugins-for-kubernetes/blob/main/cmd/gpu_plugin/README.md
+    type: application
+    urls:
+    - https://github.com/maxirus/helm-charts/releases/download/intel-gpu-0.1.0/intel-gpu-0.1.0.tgz
+    version: 0.1.0
   jellyfin:
   - apiVersion: v2
     appVersion: 10.7.7
@@ -326,4 +346,4 @@ entries:
     urls:
     - https://github.com/maxirus/helm-charts/releases/download/navidrome-0.1.2/navidrome-0.1.2.tgz
     version: 0.1.2
-generated: "2021-12-17T21:34:32.212183218Z"
+generated: "2021-12-21T21:54:16.34614775Z"
