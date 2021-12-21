@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "intel-gpu.fullname" . }}-test-intel-gpu-plugin"
+  labels:
+    {{- include "intel-gpu.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: intelgpu-test
+      image: intelopencl/intel-opencl:ubuntu-20.10-ppa
+      command: ['clinfo']
+      resources:
+        limits:
+          gpu.intel.com/i915: 1
+  restartPolicy: Never

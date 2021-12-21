@@ -1,0 +1,10 @@
+1. Verfiy plugin registration
+
+kubectl get nodes -o=jsonpath="{range .items[*]}{.metadata.name}{'\n'}{' i915: '}{.status.allocatable.gpu\.intel\.com/i915}{'\n'}"
+
+You should find node(s) with:
+i915: 1
+
+2. Test plugin
+
+Run: helm test <release_name> --namespace <namespace> --logs

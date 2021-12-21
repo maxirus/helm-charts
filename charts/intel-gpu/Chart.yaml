@@ -1,0 +1,15 @@
+apiVersion: v2
+name: intel-gpu
+description: A Helm chart to deploy the Intel GPU Device plugin on Kubernetes
+type: application
+version: 0.1.0
+appVersion: "0.22.0"
+keywords:
+  - intel
+  - gpu
+  - device
+  - plugin
+home: https://github.com/maxirus/helm-charts/tree/master/charts/intel-gpu
+sources:
+    - https://github.com/maxirus/helm-charts/tree/master/charts/intel-gpu
+    - https://github.com/intel/intel-device-plugins-for-kubernetes/blob/main/cmd/gpu_plugin/README.md

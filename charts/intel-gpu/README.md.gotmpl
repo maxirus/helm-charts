@@ -1,0 +1,61 @@
+{{ template "chart.header" . }}
+{{ template "chart.deprecationWarning" . }}
+
+{{ template "chart.versionBadge" . }}{{ template "chart.typeBadge" . }}{{ template "chart.appVersionBadge" . }}
+
+{{ template "chart.description" . }}
+
+Deploys the [Intel GPU Device Plugin](https://github.com/intel/intel-device-plugins-for-kubernetes#gpu-device-plugin) into a Kubernetes cluster, using Helm. See their official docs [here](https://github.com/intel/intel-device-plugins-for-kubernetes/blob/main/cmd/gpu_plugin/README.md).
+
+{{ template "chart.homepageLine" . }}
+
+## Install
+
+Using [Helm](https://helm.sh), you can easily install the Intel GPU Device Plugin in a 
+Kubernetes cluster by running the following:
+
+```bash
+helm upgrade --install \
+  my-release maxirus/intel-gpu
+```
+
+If you're running [Node Feature Discovery](https://kubernetes-sigs.github.io/node-feature-discovery/stable/get-started/index.html) within your cluster, you can limit the DaemonSet to compatible nodes using the proper `nodeSelector`:
+If your device shows as a *Display Controller*, use `feature.node.kubernetes.io/pci-0380_8086.present: "true"`. If your device shows as a *VGA Controller*, use `feature.node.kubernetes.io/pci-0300_8086.present: "true"`. See below for more info.
+
+```yaml
+# my-values.yaml
+nodeSelector:
+  # feature.node.kubernetes.io/pci-0380_8086.present: "true" # Display controller
+  feature.node.kubernetes.io/pci-0300_8086.present: "true" # VGA COntroller
+```
+
+```bash
+helm upgrade --install \
+  my-release maxirus/intel-gpu \
+  -f my-values.yaml
+```
+
+## Display/VGA Controller
+
+I'm not exactly sure what constitutes a *Display Controller* vs. a *VGA Controller* but I suspect it has to do with having multiple GPUs and one being primary/active. In order to determine which one you have, run the following on your node:
+```bash
+lspci -nn | grep -E '(0380|0300).*8086'
+```
+
+Example:
+```bash
+# lspci -nn | grep -E '(0380|0300).*8086'
+00:02.0 Display controller [0380]: Intel Corporation CometLake-S GT2 [UHD Graphics 630] [8086:9bc8] (rev 03)
+```
+
+You would then set you `nodeSelector` appropriately as outlined above.
+
+> NOTE: This currently has a disadvantage of not being able to run on either type on controller as the nodeSelector is a "match all".
+
+{{ template "chart.maintainersSection" . }}
+
+{{ template "chart.sourcesSection" . }}
+
+{{ template "chart.requirementsSection" . }}
+
+{{ template "chart.valuesSection" . }}
