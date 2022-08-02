@@ -6,6 +6,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.0] - 2022-08-02
+### Added
+- Support for ingressClassName
+- Support for setting `pathType` in ingress path
+### Updated
+- application version to `v1.25.2`
+### Fixed
+- Issue with Ingress and clusters >=v1.19
+
+
 ## [0.5.1] - 2021-11-02
 ### Fixed
 - Chart description

@@ -155,6 +155,9 @@ ingress:
 
   # ingress.enabled -- Enables the use of an Ingress Controller to front the Service and provide HTTPS
   enabled: false
+
+  # -- ingress class name to use
+  className: ""
   
   # ingress.annotations -- annotations to configure your Ingress. See your Ingress Controller's Docs for more info.
   annotations: {}
@@ -165,7 +168,8 @@ ingress:
   hosts:
     - host: chart-example.local
       paths:
-        - '/'
+        - path: /
+          pathType: ImplementationSpecific
   
   # ingress.tls -- list of TLS configurations
   tls: []

@@ -4,7 +4,7 @@
 
 A Helm chart to deploy VaultWarden and the MySQL backend
 
-This Helm Chart deploys the [dani-garcia/bitwarden_rs](https://github.com/dani-garcia/bitwarden_rs) project, using the MySQL backend, into your Kubernetes cluster. It provides a secure, central password management utility.
+This Helm Chart deploys the [dani-garcia/vaultwarden](https://github.com/dani-garcia/vaultwarden) project, using the MySQL backend, into your Kubernetes cluster. It provides a secure, central password management utility.
 
 **Homepage:** <https://github.com/maxirus/helm-charts/tree/master/charts/bitwarden-rs>
 
@@ -52,8 +52,9 @@ helm upgrade --install \
 | image.repository | string | `"vaultwarden/server"` | Docker registry/repository to pull the image from |
 | image.tag | string | `nil` | Overrides the image tag used |
 | ingress.annotations | object | `{}` | annotations to configure your Ingress. See your Ingress Controller's Docs for more info. |
+| ingress.className | string | `""` | ingress class name to use |
 | ingress.enabled | bool | `false` | Enables the use of an Ingress Controller to front the Service and provide HTTPS |
-| ingress.hosts | list | `[{"host":"chart-example.local","paths":["/"]}]` | list of hosts and their paths that ingress controller should repsond to. First host will be used to set the Bitwarden `DOMAIN`. |
+| ingress.hosts | list | `[{"host":"chart-example.local","paths":[{"path":"/","pathType":"ImplementationSpecific"}]}]` | list of hosts and their paths that ingress controller should repsond to. First host will be used to set the Bitwarden `DOMAIN`. |
 | ingress.tls | list | `[]` | list of TLS configurations |
 | mysql | object | `{"enabled":true,"existingSecret":"bitwarden","externalHost":null,"mysqlDatabase":"bitwarden","mysqlUser":"bitwarden","service":{"port":3306}}` | MySQL HelmChart configuration options. See [docs](https://github.com/helm/charts/tree/master/stable/mysql) |
 | mysql.enabled | bool | `true` | Set to `false` to skip MySQL deployment and use and external instance. Must also set `mysql.externalHost`. |
@@ -95,7 +96,7 @@ ingress to the web service is **NOT** by default. You must use the `ROCKET_TLS` 
 
 ## Further Reading
 
-Checkout the [dani-garcia/bitwarden_rs](https://github.com/dani-garcia/bitwarden_rs) project for more details on Bitwarden_rs.
+Checkout the [dani-garcia/vaultwarden](https://github.com/dani-garcia/vaultwarden) project for more details on Vaultwarden.
 
 These Docs are not meant to be comprehensive in nature. You should fully understand the security aspects of running your own
 central password management service before using this. I'd highly recommend using the [Official Bitwarden](https://bitwarden.com) service instead
