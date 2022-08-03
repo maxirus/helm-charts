@@ -66,7 +66,7 @@ helm upgrade --install \
 | nameOverride | string | `""` | Overrides the name of resources |
 | nodeSelector | object | `{}` | Node Selector configuration |
 | persistence.accessMode | string | `"ReadWriteOnce"` | [access mode](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) to use for the PVC |
-| persistence.annotations | object | `{}` | (Optional) annotations to add to the PVC |
+| persistence.annotations | Optional | `{}` | annotations to add to the PVC |
 | persistence.enabled | bool | `false` | Enables persistence of the Bitwarden_rs `/data` directory |
 | persistence.size | string | `"8Gi"` | size/capacity of the PVC |
 | podSecurityContext | object | `{}` | Set Pod security contexts |
