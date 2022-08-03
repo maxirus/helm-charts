@@ -11,7 +11,8 @@ if [[ "${CHART_DIRS}" == "" ]]; then
     echo "[INFO] No chart updates detected"
     exit 0
 fi
-KUBEVAL_VERSION="0.15.0"
+# Docs: https://github.com/instrumenta/kubeval/
+KUBEVAL_VERSION="0.16.1"
 SCHEMA_LOCATION="https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/"
 
 # install kubeval
